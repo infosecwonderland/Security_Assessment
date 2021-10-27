@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<h2><%= name %></h2>
+<form action="/login" method="POST">
+
+        <div>
+                <lable for="email"> Email </label>
+                <input type="text" id="email" name="email" required>
+        </div>
+
+        <div>
+                <label for="password"> Password </label>
+                <input type="password" id="password" name="password" required>
+        </div>
+
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+<button type="submit"> Login </button>
+
+</form>
+
+
+<a href="/register">Register</a>
+<a href="/forgot-password">Forgot Password</a>

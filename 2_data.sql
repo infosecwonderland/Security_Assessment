@@ -1,0 +1,1 @@
+CREATE TABLE `auth`.`users` (`id` INT NOT NULL AUTO_INCREMENT,`email` VARCHAR(45) NULL,`password` VARCHAR(100) NULL,`reset_pass` VARCHAR(100) NULL,`time` VARCHAR(45) NULL,PRIMARY KEY (`id`));

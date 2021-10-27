@@ -1,0 +1,27 @@
+<h1>Register</h1>
+<h2><%= name %></h2>
+<form action="/register" method="POST">
+
+
+        <div>
+                <lable for="email"> Email </label>
+                <input type="text" id="email" name="email" required>
+        </div>
+
+        <div>
+                <label for="password"> Password </label>
+                <input type="password" id="password" name="password" required>
+        </div>
+
+	<div>
+                <label for="confirmpassword">Confirm  Password </label>
+                <input type="password" id="confirmpassword" name="confirmpassword" required>
+        </div>
+
+	<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+<button tyep="submit"> Register </button>
+
+</form>
+
+<a href="/login">Login</a>

@@ -1,0 +1,34 @@
+version: '3.3'
+services: 
+    web:
+        build:
+            context: .
+        env_file: ./.env
+        command: node server.js
+        volumes: 
+            - .:/app/
+            - /app/node_modules
+        ports:
+            - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+        depends_on: 
+            - mysqldb
+        environment: 
+            MYSQL_HOST: mysqldb
+
+        entrypoint: dockerize -wait tcp://mysqldb:3306 -timeout 60m
+       
+    mysqldb:
+        image: mysql
+        env_file: ./.env
+        environment: 
+            MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+            MYSQL_DATABASE: $DB_NAME
+        ports:
+            - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+        volumes:
+            - mysql:/var/lib/mysql
+            - mysql_config:/etc/mysql
+            - ./2_data.sql:/docker-entrypoint-initdb.d/2.sql
+volumes:
+    mysql:
+    mysql_config:

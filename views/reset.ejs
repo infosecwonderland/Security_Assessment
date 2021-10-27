@@ -1,0 +1,28 @@
+<h1>Reset</h1>
+<h2><%= name %></h2>
+<form action="/reset" method="POST">
+
+
+        <div>
+                <lable for="Old Password"> Old Password </label>
+                <input type="password" id="Oldpass" name="Oldpass" required>
+        </div>
+
+        <div>
+                <label for="password"> New Password </label>
+                <input type="password" id="Newpass" name="Newpass" required>
+        </div>
+
+	<div>
+                <label for="confirmpassword">Confirm  Password </label>
+                <input type="password" id="confirmpassword" name="confirmpassword" required>
+        </div>
+
+	<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+	<input type="hidden" name="token" value="<%= token %>">
+
+<button tyep="submit"> Reset </button>
+
+</form>
+
+<a href="/login">Login</a>

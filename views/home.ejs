@@ -1,0 +1,11 @@
+
+<p>
+    After Login the user will reach here.
+</p>
+
+<form action="/logout" method="POST">
+	
+   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+   <button type="submit"> Logout </button>
+
+</form>
