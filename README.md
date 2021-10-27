@@ -1,15 +1,18 @@
 # Security-Assessment
 
-Execute the command "docker-compose up --build"
-if there are fetch error for npm pakages the please do the below changes
+Step-1)Execute the command "docker-compose up --build"
+
+Step-2)If there are fetch error for npm pakages, then please do the below changes
 
 create a daemon.json file in  "/etc/docker/daemon.json", the add the following
 {
   "dns": ["192.168.2.1", "8.8.8.8"] // 192.168.2.1 is value of your dns
 }
+sudo service docker restart
 
-Now run the command again "docker-compose --build"
+Step-3)Now run the command again "docker-compose --build"
 
+Step-4) Application can be accessed by browsing https://127.0.0.1/ 
 
 -----------------------------------------------------------------------------------------------------------------------------
 
@@ -39,4 +42,6 @@ Implemented CSRF on all pages to verify requests
 10. Added forgot-password and reset password functionality: Password reset link will be shared via email and the time expiration is set.
 
 11. Brute Force implemented.
+
+12. Authorization check is implemented for after login page i.e /home, this page cannot be accessed before login.
 
